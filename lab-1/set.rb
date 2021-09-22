@@ -1,13 +1,4 @@
-class Card
-
-  def initialize(color, number, shape, shading)
-    @color = color
-    @number = number
-    @shape = shape
-    @shading = shading
-  end
-
-end
+require "./card.rb"
 
 def create_deck
   deck = []
@@ -30,5 +21,11 @@ def create_deck
   deck
 end
 
+
+# Main game code
+puts "Game Started"
 deck = create_deck
-puts deck.length
+
+#deck.each {|card| puts card.color, card.number, card.shape, card.shading, "\n"}
+
+puts Card.valid_set?(Card.new("red", 1, "diamond", "solid"), Card.new("red", 1, "diamond", "striped"), Card.new("red", 1, "diamond", "open"))
