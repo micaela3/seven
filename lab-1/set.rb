@@ -33,10 +33,12 @@ temp = []
   while totalCard < 12 
     item = deck.sample
     puts "#{item.color}, #{item.number}, #{item.shape}, #{item.shading}"
-    temp = deck.delete(item)
+    temp << deck.delete(item)
     totalCard = totalCard + 1
   end
 
+puts temp
+  
 #deck.each {|card| puts card.color, card.number, card.shape, card.shading, "\n"}
 
 #puts Card.valid_set?(Card.new("red", 1, "diamond", "solid"), Card.new("red", 1, "diamond", "striped"), Card.new("red", 1, "diamond", "open"))
