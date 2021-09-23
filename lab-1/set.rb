@@ -37,7 +37,6 @@ temp = []
     totalCard = totalCard + 1
   end
 
-puts temp
   
 #deck.each {|card| puts card.color, card.number, card.shape, card.shading, "\n"}
 
