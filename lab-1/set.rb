@@ -21,6 +21,11 @@ def create_deck
   deck
 end
 
+# Finds a set in the array of cards passed in. Borrowed from https://github.com/teixeir3/Ruby-SetGame/blob/master/lib/board.rb
+def find_set(cards)
+  cards.combination(3).to_a.find {|x,y,z| Card.valid_set?(x,y,z)} || false
+end
+
 
 # Main game code
 puts "Game Started"
