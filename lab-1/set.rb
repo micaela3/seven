@@ -50,7 +50,18 @@ temp = []
         puts "Sorry there are no more cards. Game Over!"
         gameOver = true
       elsif temp.length == maxCards
-        puts "Sorry, you can only have 21 cards out at a time!"
+        puts "\nSorry, you can only have 21 cards out at a time!"
+        puts "Would you like to keep looking for a set? (Enter 'y' to keep looking or 'n' to end the game)."
+        keepPlaying = ""
+        until keepPlaying == "y" || keepPlaying == "n"
+          keepPlaying = gets.chomp
+          if keepPlaying == "n"
+            puts "Game Over!"
+            gameOver = true
+          elsif keepPlaying != "y"
+            puts "Please enter either 'y' or 'n' to keep playing or quit."
+          end
+        end
       else
         #reprint out all the cards from the previous round
         temp.each_with_index do |card, index|
@@ -82,9 +93,10 @@ temp = []
               temp[nums[i]] = deck.delete(item)
             end
           else
-            temp.delete_at(nums[0])  
-            temp.delete_at(nums[1])  
-            temp.delete_at(nums[2])  
+            for i in 0..2
+              card = temp[nums[i]]
+              temp.delete(card)  
+            end
           end
 
           #reprint out all the cards from the previous round
