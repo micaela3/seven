@@ -1,0 +1,39 @@
+README for LAB1
+
+This is Team Seven's version of the game of Set. Set is a card game in which players create sets using the cards dealt. Detailed rules below.
+
+Number of players: 1-2 players. If you wish to play as a single player, play as Player A and ignore player B.
+
+To run the game: on the command line type "ruby set.rb"
+
+How to Play:
+The deck of cards consists of 81 unique cards. Each card has 4 attributes - color, symbol, number, and shading.
+Each attribute has 3 possible options.
+	Color: red, green, or purple
+	Symbol: oval, squiggle, or diamond
+	Number: 1, 2, or 3
+	Shading: solid, open, or striped
+
+At the start of the game, 12 cards are dealt.
+
+Players A and B try to find a set as fast as possible. There is no need to take turns, as the goal is to find more sets than the other player. One correctly identified set = 1 point. The current score is reported after each player's turn.
+
+
+A set consists of 3 cards satisfying the following characterstic: any single attribute is either the same on all 3 cards or different on all 3 cards.
+An example of a valid set is the following:
+
+Card	Color		Number		Symbol		Shading
+0	purple		3		oval		open
+1	red		2		oval		striped
+2	green		1		oval		solid
+
+Here the color, number, and shading attributes are different on all 3 cards while the symbol attribute is the same on all 3 cards.
+
+Be sure to type your Player letter ("A" or "B") before entering the card numbers that you think are sets.
+The format for Player A for typing in your answer is: "A #,#,#" where # represents the card numbers.
+The format for Player B for typing in your answer is: "B #,#,#" where # represents the card numbers.
+(It is okay if there are spaces between the comma and the next number.)
+
+If players don't see any sets, they can enter "n" for 3 additional cards. Only 21 cards at a time are allowed on the table, so if a player asks for additional cards after that, they are given the option to continue playing or end the game by entering "y" or "n" respectively.
+
+If players want help, they can enter "h" for a hint. The hint will give them 2 cards which are part of a possible set.
