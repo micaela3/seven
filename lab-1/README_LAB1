@@ -4,7 +4,7 @@ This is Team Seven's version of the game of Set. Set is a card game in which pla
 
 Number of players: 1-2 players. If you wish to play as a single player, play as Player A and ignore player B.
 
-To run the game: on the command line type "ruby set.rb"
+To run the game: on the command line enter "ruby set.rb"
 
 How to Play:
 The deck of cards consists of 81 unique cards. Each card has 4 attributes - color, symbol, number, and shading.
@@ -37,3 +37,6 @@ The format for Player B for typing in your answer is: "B #,#,#" where # represen
 If players don't see any sets, they can enter "n" for 3 additional cards. Only 21 cards at a time are allowed on the table, so if a player asks for additional cards after that, they are given the option to continue playing or end the game by entering "y" or "n" respectively.
 
 If players want help, they can enter "h" for a hint. The hint will give them 2 cards which are part of a possible set.
+
+Our game is based off of the description of Set found on Wikipedia from the following link: https://en.wikipedia.org/wiki/Set_(card_game)
+
