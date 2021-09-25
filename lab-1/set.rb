@@ -87,7 +87,11 @@ dealt_cards = []
       end
     elsif input == "h"
       set = find_set(dealt_cards)
-      puts "There is a card that forms a set with cards #{dealt_cards.find_index(set[0])} and #{dealt_cards.find_index(set[1])}. Good luck!"
+      if set
+        puts "There is a card that forms a set with cards #{dealt_cards.find_index(set[0])} and #{dealt_cards.find_index(set[1])}. Good luck!"
+      else
+        puts "There are no valid sets. Press 'n' to draw more cards! If you still can't find a set, the game is over!"
+      end
     else
       #if string was not 'n' or 'h', make a string only containing numbers the user input, convert to array
       playerID = input.slice! 0   # Remove the player ID from input while also recording which player found the set
@@ -99,7 +103,7 @@ dealt_cards = []
         puts "ERROR: Make sure to enter exactly three card numbers!"
       else
         validSet = Card.valid_set?(dealt_cards[nums[0]], dealt_cards[nums[1]], dealt_cards[nums[2]])
-        puts "\nCorrect. Good Job, Player #{playerID}." if  validSet
+        puts "\nCorrect. Good Job, Player #{playerID}!" if  validSet
         puts "\nIncorrect. Not a valid set. Try again!" if !validSet
         puts
         if validSet
