@@ -83,7 +83,16 @@ dealt_cards = []
         until keepPlaying == "y" || keepPlaying == "n"
           keepPlaying = gets.chomp
           if keepPlaying == "n"
-            puts "Game Over!"
+            puts "\nGame Over! The final score is:"
+            puts "Player A score: #{playerA_score}"
+            puts "Player B score: #{playerB_score}"
+            if playerA_score > playerB_score
+              puts "Player A wins!"
+            elsif playerB_score > playerA_score
+              puts "Player B wins!"
+            else
+              puts "This game ends in a draw!"
+            end
             gameOver = true
           elsif keepPlaying != "y"
             puts "Please enter either 'y' or 'n' to keep playing or quit."
