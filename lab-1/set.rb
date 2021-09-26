@@ -108,7 +108,7 @@ dealt_cards = []
       end
     else
       #if string was not 'n' or 'h', make a string only containing numbers the user input, convert to array
-      playerID = input.slice!(0).upcase!   # Remove the player ID from input while also recording which player found the set
+      playerID = (input.slice!(0)).upcase   # Remove the player ID from input while also recording which player found the set
       nums = input.split(',')
       #numsArr = nums.scan(/\w/)
       nums.map!(&:to_i)
@@ -145,6 +145,7 @@ dealt_cards = []
           # Display current player scores
           puts "\nPlayer A score: #{playerA_score}"
           puts "Player B score: #{playerB_score}"
+          puts "There are #{deck.length} cards in the deck!"
         end
       end
     end
