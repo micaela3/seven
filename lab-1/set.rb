@@ -108,13 +108,20 @@ dealt_cards = []
       end
     else
       #if string was not 'n' or 'h', make a string only containing numbers the user input, convert to array
-      playerID = (input.slice!(0)).upcase   # Remove the player ID from input while also recording which player found the set
+      playerID = ""
+      # Remove the player ID from the input
+      until playerID == "A" || playerID == "B"
+        playerID = (input.slice!(0)).upcase
+        if playerID != "A" && playerID != "B"
+          puts "ERROR: Make sure to enter either 'A' or 'B' before your set to indicate your player ID!"
+          input = gets.chomp
+        end
+      end
       nums = input.split(',')
-      #numsArr = nums.scan(/\w/)
       nums.map!(&:to_i)
       #output error message if the user input less or more than 3 card numbers
       if nums.length != 3
-        puts "ERROR: Make sure to enter exactly three card numbers!"
+        puts "ERROR: Make sure to enter exactly three card numbers with commas separating them!"
       else
         validSet = Card.valid_set?(dealt_cards[nums[0]], dealt_cards[nums[1]], dealt_cards[nums[2]])
         puts "\nCorrect. Good Job, Player #{playerID}!" if  validSet
