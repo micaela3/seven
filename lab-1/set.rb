@@ -1,4 +1,5 @@
-require "./card.rb"
+require './card.rb'
+require 'colorize'
 
 def create_deck
   deck = []
@@ -26,6 +27,19 @@ def find_set(cards)
   cards.combination(3).to_a.find {|x,y,z| Card.valid_set?(x,y,z)} || false
 end
 
+# Print the given array of cards in an easily-read table, one attribute per column
+def display_cards(cards)
+  puts
+  cards.each_with_index do |card, index|
+    card_color = ""
+    card_color = :light_red if card.color == "red"
+    card_color = :light_green if card.color == "green"
+    card_color = :light_magenta if card.color == "purple"
+    print "#{index}\t", "#{card.color}".colorize(card_color), "\t#{card.number}\t#{card.shape}    \t#{card.shading}\n"
+
+  end
+end
+
 
 # Main game code
 puts "Game Started"
@@ -37,16 +51,19 @@ playerB_score = 0
 totalCard = 0
 dealt_cards = []
 
+  # Deal 12 cards to the table
   while totalCard < 12 
     item = deck.sample
-    puts "#{totalCard}\t#{item.color}\t#{item.number}\t#{item.shape}    \t#{item.shading}"
     dealt_cards << deck.delete(item)
     totalCard = totalCard + 1
   end
 
-# Prompt the user to choose three cards then determine if they are a set
+  # Display the 12 drawn cards
+  display_cards dealt_cards
+
+  # Prompt the user to choose three cards then determine if they are a set
+  MAXCARDS = 21
   gameOver = false
-  maxCards = 21
   puts "\nEnter the indices of three cards that make a set."
   puts "Player A, type your anwer as \"A #,#,#\""
   puts "Player B, type your anwer as \"B #,#,#\""
@@ -59,7 +76,7 @@ dealt_cards = []
       if deck.length == 0
         puts "Sorry there are no more cards. Game Over!"
         gameOver = true
-      elsif dealt_cards.length == maxCards
+      elsif dealt_cards.length == MAXCARDS
         puts "\nSorry, you can only have 21 cards out at a time!"
         puts "Would you like to keep looking for a set? (Enter 'y' to keep looking or 'n' to end the game)."
         keepPlaying = ""
@@ -73,18 +90,15 @@ dealt_cards = []
           end
         end
       else
-        #reprint out all the cards from the previous round
-        dealt_cards.each_with_index do |card, index|
-          puts "#{index}\t#{card.color}\t#{card.number}\t#{card.shape}    \t#{card.shading}"
-        end
-        #print out three new random cards from the deck
+        # Print out three new random cards from the deck
         for i in 0..2
           item = deck.sample
-          puts "#{totalCard}\t#{item.color}\t#{item.number}\t#{item.shape}    \t#{item.shading}"
           dealt_cards << deck.delete(item)
           totalCard = totalCard + 1
         end
+        display_cards dealt_cards
       end
+
     elsif input == "h"
       set = find_set(dealt_cards)
       if set
@@ -94,7 +108,7 @@ dealt_cards = []
       end
     else
       #if string was not 'n' or 'h', make a string only containing numbers the user input, convert to array
-      playerID = input.slice! 0   # Remove the player ID from input while also recording which player found the set
+      playerID = input.slice!(0).upcase!   # Remove the player ID from input while also recording which player found the set
       nums = input.split(',')
       #numsArr = nums.scan(/\w/)
       nums.map!(&:to_i)
@@ -126,9 +140,7 @@ dealt_cards = []
           puts "Invalid player ID entered; score not counted" if playerID != "A" && playerID != "B"
 
           #reprint out all the cards from the previous round
-          dealt_cards.each_with_index do |card, index|
-            puts "#{index}\t#{card.color}\t#{card.number}\t#{card.shape}    \t#{card.shading}"
-          end
+          display_cards dealt_cards
 
           # Display current player scores
           puts "\nPlayer A score: #{playerA_score}"
@@ -138,6 +150,3 @@ dealt_cards = []
     end
   end
 
-#deck.each {|card| puts card.color, card.number, card.shape, card.shading, "\n"}
-
-#puts Card.valid_set?(Card.new("red", 1, "diamond", "solid"), Card.new("red", 1, "diamond", "striped"), Card.new("red", 1, "diamond", "open"))

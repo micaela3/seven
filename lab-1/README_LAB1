@@ -2,6 +2,10 @@ README for LAB1
 
 This is Team Seven's version of the game of Set. Set is a card game in which players create sets using the cards dealt. Detailed rules below.
 
+Requirements:
+  colorize
+    - To install, run the command "gem install colorize"
+
 Number of players: 1-2 players. If you wish to play as a single player, play as Player A and ignore player B.
 
 To run the game: on the command line enter "ruby set.rb"
@@ -25,9 +29,9 @@ A set consists of 3 cards satisfying the following characterstic: any single att
 An example of a valid set is the following:
 
 Card	Color		Number		Symbol		Shading
-0	purple		3		oval		open
-1	red		2		oval		striped
-2	green		1		oval		solid
+0	    purple		3		    oval		  open
+1	    red		    2		    oval		  striped
+2	    green		  1		    oval		  solid
 
 Here the color, number, and shading attributes are different on all 3 cards while the symbol attribute is the same on all 3 cards.
 
