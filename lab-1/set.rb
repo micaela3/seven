@@ -128,9 +128,24 @@ dealt_cards = []
       end
       nums = input.split(',')
       nums.map!(&:to_i)
+      
+      # Check if any inputs is out of the range
+      input_range = true
+      j = 0
+      while j < nums.length
+        if(nums[j] > totalCard)
+          input_range = false
+          j = nums.length
+        end 
+        j = j + 1
+      end
+
       #output error message if the user input less or more than 3 card numbers
       if nums.length != 3
         puts "ERROR: Make sure to enter exactly three card numbers with commas separating them!"
+      #output error message if the user does not input the number within the range
+      elsif input_range == false
+        puts "ERROR: Make sure to enter the card numbers within the range!"
       else
         validSet = Card.valid_set?(dealt_cards[nums[0]], dealt_cards[nums[1]], dealt_cards[nums[2]])
         puts "\nCorrect. Good Job, Player #{playerID}!" if  validSet
