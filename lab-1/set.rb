@@ -133,7 +133,7 @@ dealt_cards = []
       input_range = true
       j = 0
       while j < nums.length
-        if(nums[j] > totalCard)
+        if(nums[j] > totalCard - 1)
           input_range = false
           j = nums.length
         end 
