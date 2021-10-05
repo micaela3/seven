@@ -10,15 +10,15 @@ const rl = readline.createInterface({
 function createDeck() {
   deck = new Array;
 
-  var colors = ['red' , 'green', 'purple'];
+  var colors = ['red', 'green', 'purple'];
   var numbers = [1, 2, 3];
   var shapes = ['diamond', 'squiggle', 'oval']
   var shadings = ['solid', 'striped', 'open']
 
-  colors.forEach(function(color) {
-    numbers.forEach(function(number) {
-      shapes.forEach(function(shape) {
-        shadings.forEach(function(shading) {
+  colors.forEach(function (color) {
+    numbers.forEach(function (number) {
+      shapes.forEach(function (shape) {
+        shadings.forEach(function (shading) {
           deck.push(new Card(color, number, shape, shading));
         });
       });
@@ -30,7 +30,7 @@ function createDeck() {
 
 // Taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
-  let currentIndex = array.length,  randomIndex;
+  let currentIndex = array.length, randomIndex;
 
   // While there remain elements to shuffle...
   while (currentIndex != 0) {
@@ -45,12 +45,12 @@ function shuffle(array) {
   }
 
   return array;
-  }
+}
 
 function displayCards(cards) {
   for (var index = 0; index < cards.length; index++) {
-      console.log(`${index}\t${cards[index].color}\t${cards[index].number}\t${cards[index].shape}    \t${cards[index].shading}`);
-    }
+    console.log(`${index}\t${cards[index].color}\t${cards[index].number}\t${cards[index].shape}    \t${cards[index].shading}`);
+  }
 }
 
 /*=========================
