@@ -47,6 +47,10 @@ function shuffle(array) {
   return array;
 }
 
+/*function findSet(cards) {
+
+}*/
+
 function displayCards(cards) {
   for (var index = 0; index < cards.length; index++) {
     console.log(`${index}\t${cards[index].color}\t${cards[index].number}\t${cards[index].shape}    \t${cards[index].shading}`);
@@ -81,35 +85,38 @@ console.log('If you se no valid sets, enter "n" to receive three more cards.');
 console.log('If you need help, enter "h" to view a hint.');
 
 while (gameOver == false) {
-  if(/*user click new card*/){
-    if(deck.length == 0) {
+  if (/*user clicks button for three more cards*/) {
+    if (deck.length == 0) {
       window.alert('Sorry there are no more cards. Game Over!');
-    } else if(tableCards.length == maxCards) {
+      gameOver = true;
+    } else if (tableCards.length == maxCards) {
       window.alert('\nSorry, you can only have 21 cards out at a time!');
       window.alert('Would you like to keep looking for a set?');
-      if(/*the user click yes*/){
-        console.log("The game is continued");
-      } else if(/* the user click no*/){
+      if (/*the user click yes*/) {
+        console.log("The game is continued.");
+      } else if (/* the user click no*/) {
         gameOver == true;
         console.log("\nGame Over! The final score is:");
         console.log("Player A score:" + playerA_score);
         console.log("Player B score:" + playerB_score);
-        if( playerA_score > playerB_score){
+        if (playerA_score > playerB_score) {
           console.log("Player A wins!");
-        } else if(playerB_score > playerA_score){
+        } else if (playerB_score > playerA_score) {
           console.log("Player B wins!");
-        } else{
+        } else {
           console.log("The game ends in a draw!");
         }
       }
-    } else{
-        for(var i = 0; i <= 2; i++){
-          totalTableCards = totalTableCards + i;
-          tableCards[totalTableCards] = deck.shift();
+    } else {
+      for (var i = 0; i <= 2; i++) {
+        totalTableCards = totalTableCards + 1;
+        tableCards[totalTableCards] = deck.shift();
       }
       displayCards(tableCards);
     }
-  } else if(/*user clicks hint*/) {
+  } else if (/*user clicks hint*/) {
+    //finish creating findSet method and use it to see if there is a valid set
+  } else { //insert code for when the player chooses a set
 
   }
 }

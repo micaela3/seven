@@ -25,5 +25,3 @@ class Card {
     return true;
   }
 }
-
-module.exports = Card
