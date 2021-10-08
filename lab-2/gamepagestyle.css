@@ -3,7 +3,7 @@ body {
   font-family:Arial, Helvetica, sans-serif;
 }
 
-#players {
+#playersBox {
   border: 2px solid gray;
   width: auto;
   padding: 10px 10px 10px 10px;
@@ -11,13 +11,25 @@ body {
   margin-right: 8vw;
 }
 
-#players button {
+#playersBox button {
   width: 5vw;
   height: 5vh;
   cursor: pointer;
-  display: inline-flex;
+  /* display: inline-flex; */
+  display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  align-items: baseline;
+}
+
+#playersInfo {
+  display: flex;
+  align-items:center;
+}
+
+#scores {
+  margin-left: 3vw;
+  font-size: x-large;
 }
 
 #cards {
@@ -27,7 +39,7 @@ body {
   background-color: #fbbca7;
   background-position: center;
   padding: 100px 100px 100px 100px;
-  border-spacing: 3vw; 
+  border-spacing: 3vw;
 }
 
 #cards button {

@@ -20,3 +20,5 @@ document.getElementById('players').addEventListener('click', function(event) {
 
   }
 });
+
+console.log('test');
