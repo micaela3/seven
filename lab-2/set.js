@@ -58,12 +58,16 @@ function displayCards(cards) {
 ===========================*/
 // Create and shuffle the full card deck
 var deck = createDeck();
+var totalTableCards = 0;
+var playerA_score = 0;
+var playerB_score = 0;
 shuffle(deck);
 
 // Deal the first 12 cards of the shuffled array to the table
 var tableCards = new Array(12);
 for (var i = 0; i < 12; i++) {
   tableCards[i] = deck.shift();
+  totalTableCards = totalTableCards + 1;
 }
 displayCards(tableCards);
 
@@ -75,3 +79,37 @@ console.log('Player A, type your choice as "A #,#,#');
 console.log('Player B, type your choice as "B #,#,#');
 console.log('If you se no valid sets, enter "n" to receive three more cards.');
 console.log('If you need help, enter "h" to view a hint.');
+
+while (gameOver == false) {
+  if(/*user click new card*/){
+    if(deck.length == 0) {
+      window.alert('Sorry there are no more cards. Game Over!');
+    } else if(tableCards.length == maxCards) {
+      window.alert('\nSorry, you can only have 21 cards out at a time!');
+      window.alert('Would you like to keep looking for a set?');
+      if(/*the user click yes*/){
+        console.log("The game is continued");
+      } else if(/* the user click no*/){
+        gameOver == true;
+        console.log("\nGame Over! The final score is:");
+        console.log("Player A score:" + playerA_score);
+        console.log("Player B score:" + playerB_score);
+        if( playerA_score > playerB_score){
+          console.log("Player A wins!");
+        } else if(playerB_score > playerA_score){
+          console.log("Player B wins!");
+        } else{
+          console.log("The game ends in a draw!");
+        }
+      }
+    } else{
+        for(var i = 0; i <= 2; i++){
+          totalTableCards = totalTableCards + i;
+          tableCards[totalTableCards] = deck.shift();
+      }
+      displayCards(tableCards);
+    }
+  } else if(/*user clicks hint*/) {
+
+  }
+}
