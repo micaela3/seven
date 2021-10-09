@@ -1,15 +1,20 @@
 import Deck from "./card.js"
 
+//Create a new deck and shuffle it
 const deck = new Deck();
 deck.shuffle();
-console.log('test');
-console.log(deck.cards);
 
 var currentPlayer = ''; // 'playerA' or 'playerB'
 var playerAScore = 0;
 var playerBScore = 0;
 var playerAButton = false;
 var playerBButton = false;
+
+//Display the values on the initial twelve cards
+var initialCards = document.querySelectorAll('button.card');
+for (var i = 0; i < initialCards.length; i++) {
+  initialCards[i].innerHTML = `${deck.cards[i].color}\n${deck.cards[i].shape}\n${deck.cards[i].shading}\n${deck.cards[i].number}`;
+}
 
 document.getElementById('cards').addEventListener('click', function (event) {
   if (event.target.nodeName === 'BUTTON') {
@@ -31,7 +36,7 @@ document.getElementById('players').addEventListener('click', function (event) {
         event.target.style.fontSize = 'small'
         playerAButton = false;
       }
-    } else { 
+    } else {
       if (playerBButton == false) { //if playerB is off, turn it on
         event.target.style.color = 'green';
         event.target.style.fontSize = 'large';
@@ -45,5 +50,7 @@ document.getElementById('players').addEventListener('click', function (event) {
     }
   }
 });
+
+
 
 console.log('test');

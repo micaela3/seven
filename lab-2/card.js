@@ -32,6 +32,7 @@ class Card {
   }
 }
 
+//Create a full new deck of 81 cards
 function newDeck() {
   return COLORS.flatMap(color => {
     return NUMBERS.flatMap(number => {
