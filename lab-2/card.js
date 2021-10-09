@@ -1,7 +1,7 @@
 const COLORS = ["red", "green", "purple"];
 const NUMBERS = ["1", "2", "3"];
-const SHAPES = ["~", "▢", "△"];
-const SHADING = ["solid", "striped", "open"];
+const SHAPES = ["triangle", "circle", "square"];
+const SHADING = ["solid", "half", "open"];
 
 export default class Deck {
   constructor(cards = newDeck()) {

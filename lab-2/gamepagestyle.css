@@ -1,6 +1,7 @@
 body {
   background-color: #fed6c9;
   font-family:Arial, Helvetica, sans-serif;
+  user-select: none;
 }
 
 #playersBox {
@@ -44,11 +45,20 @@ body {
 }
 
 #cards button {
+  font-size: x-large;
   width: 10vw;
   height: 10vh;
   cursor: pointer;
   word-spacing: unset;
   display: table-caption;
+}
+
+.card.red {
+  color: red;
+} .card.green {
+  color: green;
+} .card.purple {
+  color: purple;
 }
 
 body {
