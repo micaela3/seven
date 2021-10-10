@@ -16,7 +16,7 @@ table {
     border-spacing: 15px;
 }
 
-button {
+button, #newCard {
     background-color: #B1D8B7;
     padding: 15px 32px;
     text-align: center;
@@ -24,11 +24,9 @@ button {
     size: 48px;
 }
 
-button:hover{
+button:hover, #newCard:hover{
     background-color: green;
 }
-
-
 
 #playerA,#playerB{
     font-size: x-large;

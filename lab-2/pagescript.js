@@ -14,6 +14,7 @@ var playerBScore = 0;
 var playerAButton = false;
 var playerBButton = false;
 var numCardsOnTable = 0;
+var numRows = 3;
 
 console.log(deck.cards);
 
@@ -93,54 +94,56 @@ document.getElementById('players').addEventListener('click', function (event) {
 document.getElementById('moreCardsButton').addEventListener('click', drawCards);
 
 function drawCards(event) {
-  // Find a <table> element with id="myTable":
-  var table = document.getElementById("cards");
-
-  // Create an empty <tr> element and add it to the 1st position of the table:
-  var row = table.insertRow(0);
-
-  // Add some text to the new cells:
-  for (var index = 0; index < 4; i++) {
-    var tableCell = row.insertCell(index);
-    tableCell.type = "button";
-    tableCell.classList.add("card");
-    switch (deck.cards[i].shape) {
-      case "triangle":
-        if (deck.cards[i].shading === "solid") {
-          deck.cards[i].shape = TRIANGLES[0];
-        } else if (deck.cards[i].shading === "half") {
-          deck.cards[i].shape = TRIANGLES[1];
-        } else {
-          deck.cards[i].shape = TRIANGLES[2];
-        }
-        break;
-      case "circle":
-        tableCell.style.fontSize = 'extra large';
-        if (deck.cards[i].shading === "solid") {
-          deck.cards[i].shape = CIRCLES[0];
-        } else if (deck.cards[i].shading === "half") {
-          deck.cards[i].shape = CIRCLES[1];
-        } else {
-          deck.cards[i].shape = CIRCLES[2];
-        }
-        break;
-      case "square":
-        if (deck.cards[i].shading === "solid") {
-          deck.cards[i].shape = SQUARES[0];
-        } else if (deck.cards[i].shading === "half") {
-          deck.cards[i].shape = SQUARES[1];
-        } else {
-          deck.cards[i].shape = SQUARES[2];
-        }
-    }
-    tableCell.classList.add(`${deck.cards[i].color}`);
-    tableCell.innerHTML = "";
-    for (var j = 0; j < deck.cards[i].number; j++) {
-      tableCell.innerHTML = tableCell.innerHTML.concat(`${deck.cards[i].shape}\n`);
-    }
-    index++;
-    if (index === 3) {
-      numCardsOnTable += 4;
+  if (numCardsOnTable == 20) {
+    alert("You can't have more than 20 cards out at a time!")
+  } else {
+    // Find a <table> element with id="myTable":
+    var table = document.getElementById("cards");
+    // Create an empty <tr> element and add it to the 1st position of the table:
+    var row = table.insertRow(numRows);
+    numRows++;
+    // Add some text to the new cells:
+    var index = 0;
+    for (var cardsOnTable = numCardsOnTable; numCardsOnTable < cardsOnTable + 4; i++) {
+      var tableCell = row.insertCell(index);
+      tableCell.setAttribute('id', 'newCard');
+      tableCell.classList.add("card");
+      switch (deck.cards[i].shape) {
+        case "triangle":
+          if (deck.cards[i].shading === "solid") {
+            deck.cards[i].shape = TRIANGLES[0];
+          } else if (deck.cards[i].shading === "half") {
+            deck.cards[i].shape = TRIANGLES[1];
+          } else {
+            deck.cards[i].shape = TRIANGLES[2];
+          }
+          break;
+        case "circle":
+          tableCell.style.fontSize = 'extra large';
+          if (deck.cards[i].shading === "solid") {
+            deck.cards[i].shape = CIRCLES[0];
+          } else if (deck.cards[i].shading === "half") {
+            deck.cards[i].shape = CIRCLES[1];
+          } else {
+            deck.cards[i].shape = CIRCLES[2];
+          }
+          break;
+        case "square":
+          if (deck.cards[i].shading === "solid") {
+            deck.cards[i].shape = SQUARES[0];
+          } else if (deck.cards[i].shading === "half") {
+            deck.cards[i].shape = SQUARES[1];
+          } else {
+            deck.cards[i].shape = SQUARES[2];
+          }
+      }
+      tableCell.classList.add(`${deck.cards[i].color}`);
+      tableCell.innerHTML = "";
+      for (var j = 0; j < deck.cards[i].number; j++) {
+        tableCell.innerHTML = tableCell.innerHTML.concat(`${deck.cards[i].shape}\n`);
+      }
+      index++;
+      numCardsOnTable++;
     }
   }
 };
@@ -171,7 +174,7 @@ function submitSetGuess(event) {
     currentScore += 1;
     scoreElement.innerHTML = currentScore;
     //drawMore();
-  }else{
+  } else {
     alert("That was not a valid set!");
   }
 
