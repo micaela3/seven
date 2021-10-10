@@ -117,6 +117,9 @@ function submitSetGuess(event) {
     let currentScore = parseInt(scoreElement.innerHTML);
     currentScore += 1;
     scoreElement.innerHTML = currentScore;
+    drawMore();
+  }else{
+    alert("That was not a valid set!");
   }
 
   // Clear the text fields
