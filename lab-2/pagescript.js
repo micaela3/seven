@@ -92,4 +92,22 @@ document.getElementById('players').addEventListener('click', function (event) {
 
 
 
+// adding event listeners for hint button, draw cards button, and submit set guess button
+document.getElementById('hintButton').addEventListener('click', hint);
+// alter set.js so that hint is its own function instead of in while loop
+
+document.getElementById('moreCardsButton').addEventListener('click', drawMore);
+// alter set.js so that drawMore is its own function instead of in while loop
+
+document.getElementById('submitSetButton').addEventListener('click', submitSetGuess);
+// alter set.js so that submitSetGuess is its own function instead of in while loop
+
+/* submitSetGuess would be a function that calls other functions to:
+ *1.  check whether the input values in the textfields form a valid set
+ * (get player's guesses from text fields by var cardNum1 = document.getElementById("card1").value;
+ *2.  update the score if needed
+ *3.  deal more cards if needed*/
+
+
+
 console.log('test');
