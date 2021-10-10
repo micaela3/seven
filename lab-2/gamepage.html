@@ -14,10 +14,14 @@
           <button id="playerB">Player B</button>
         </div>
         <div id="scores">
-          <p id="playerAScore">0</p>
-          <p id="playerBScore">0</p>
+          <p id="playerAScore">Player A: 0</p>
+          <p id="playerBScore">Player B: 0</p>
         </div>
       </div>
+    </div>
+    <div id="otherActions">
+      <button id="moreCardsButton">Draw More Cards</button>
+      <button id="hintButton">Hint</button>
     </div>
     <table id="cards">
       <tr>
@@ -39,6 +43,18 @@
         <td><button class="card">Card12</button></td>
       </tr>
     </table>
+    <p>Please enter your guess in the 3 boxes below. Only enter 1 card number in each box.</p>
+    <label>Card</label>
+    <input type="text" id="card1"></input>
+    <br/>
+    <label>Card</label>
+    <input type="text" id="card2"></input>
+    <br/>
+    <label>Card</label>
+    <input type="text" id="card3"></input>
+    <br/>
+    <br/>
+    <button id="submitSetButton">Submit My Set Guess</button>
   </div>
   </body>
 </html>

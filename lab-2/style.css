@@ -40,6 +40,11 @@ button:hover{
     background-color: #055C9D;
 }
 
+#moreCardsButton,#hintButton,#submitSetButton{
+    font-size: x-large;
+    size: 34px;
+    background-color: #C38AFF;
+}
 
 td {
     height: 80px;
