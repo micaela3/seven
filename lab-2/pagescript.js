@@ -1,5 +1,3 @@
-import Deck from "./card.js"
-
 const TRIANGLES = ["▲", "◭", "△"];
 const CIRCLES = ["●", "◐", "○"];
 const SQUARES = ["■", "◧", "□"];
@@ -7,6 +5,8 @@ const SQUARES = ["■", "◧", "□"];
 //Create a new deck and shuffle it
 const deck = new Deck();
 deck.shuffle();
+
+console.log(deck.cards);
 
 var currentPlayer = ''; // 'playerA' or 'playerB'
 var playerAScore = 0;
@@ -51,7 +51,7 @@ for (var i = 0; i < initialCards.length; i++) {
   initialCards[i].classList.add(`${deck.cards[i].color}`);
   initialCards[i].innerHTML = "";
   for (var j = 0; j < deck.cards[i].number; j++) {
-    initialCards[i].innerHTML = initialCards[i].innerHTML.concat(`${deck.cards[i].shape}\n`); 
+    initialCards[i].innerHTML = initialCards[i].innerHTML.concat(`${deck.cards[i].shape}\n`);
   }
 }
 

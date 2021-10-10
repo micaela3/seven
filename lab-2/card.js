@@ -3,7 +3,7 @@ const NUMBERS = ["1", "2", "3"];
 const SHAPES = ["triangle", "circle", "square"];
 const SHADING = ["solid", "half", "open"];
 
-export default class Deck {
+class Deck {
   constructor(cards = newDeck()) {
     this.cards = cards
   }
@@ -68,7 +68,7 @@ function isValidSet(card1, card2, card3) {
 function isValidSetArray(elt, index, array) {
   var card1 = array[0];
   var card2 = array[1];
-  car card3 = array[2];
+  var card3 = array[2];
 
   if (!(card1.color === card2.color && card2.color === card3.color) || !(card1.color !== card2.color && card1.color !== card3.color && card2.color != card3.color)) {
     return false;

@@ -53,3 +53,13 @@ td {
     text-align: center;
 }
 
+.card.red {
+    color: red;
+}
+.card.green {
+    color: green;
+}
+.card.purple {
+    color: purple;
+}
+
