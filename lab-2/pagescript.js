@@ -90,51 +90,9 @@ document.getElementById('players').addEventListener('click', function (event) {
 
 // adding event listeners for hint button, draw cards button, and submit set guess button
 // document.getElementById('hintButton').addEventListener('click', hint);
-// alter set.js so that hint is its own function instead of in while loop
+document.getElementById('moreCardsButton').addEventListener('click', drawCards);
 
-// document.getElementById('moreCardsButton').addEventListener('click', drawMore);
-// alter set.js so that drawMore is its own function instead of in while loop
-
-document.getElementById('submitSetButton').addEventListener('click', submitSetGuess);
-// alter set.js so that submitSetGuess is its own function instead of in while loop
-
-/* submitSetGuess would be a function that calls other functions to:
- *1.  check whether the input values in the textfields form a valid set
- * (get player's guesses from text fields by var cardNum1 = document.getElementById("card1").value;
- *2.  update the score if needed
- *3.  deal more cards if needed*/
-function submitSetGuess(event) {
-  // Get the cards that were entered by user in text fields
-  var card1 = deck.cards[document.getElementById('card1').value];
-  var card2 = deck.cards[document.getElementById('card2').value];
-  var card3 = deck.cards[document.getElementById('card3').value];
-
-  var isValid = isValidSet(card1, card2, card3);
-
-  // If valid, increment the appropriate player's score
-  if (isValid) {
-    let scoreElement = document.getElementById(currentPlayer + 'Score');
-    let currentScore = parseInt(scoreElement.innerHTML);
-    currentScore += 1;
-    scoreElement.innerHTML = currentScore;
-    //drawMore();
-  }else{
-    alert("That was not a valid set!");
-  }
-
-  // Clear the text fields
-  document.getElementById('card1').value = '';
-  document.getElementById('card2').value = '';
-  document.getElementById('card3').value = '';
-
-  // Reset the player selection button back to default appearance
-  document.getElementById(currentPlayer).style.color = 'black';
-
-  // Set currentPlayer back to none (empty string)
-  currentPlayer = '';
-}
-
-document.getElementById('moreCardsButton').addEventListener('click', function (event) {
+function drawCards(event) {
   // Find a <table> element with id="myTable":
   var table = document.getElementById("cards");
 
@@ -185,5 +143,47 @@ document.getElementById('moreCardsButton').addEventListener('click', function (e
       numCardsOnTable += 4;
     }
   }
-});
+};
+
+// document.getElementById('moreCardsButton').addEventListener('click', drawMore);
+// alter set.js so that drawMore is its own function instead of in while loop
+
+document.getElementById('submitSetButton').addEventListener('click', submitSetGuess);
+// alter set.js so that submitSetGuess is its own function instead of in while loop
+
+/* submitSetGuess would be a function that calls other functions to:
+ *1.  check whether the input values in the textfields form a valid set
+ * (get player's guesses from text fields by var cardNum1 = document.getElementById("card1").value;
+ *2.  update the score if needed
+ *3.  deal more cards if needed*/
+function submitSetGuess(event) {
+  // Get the cards that were entered by user in text fields
+  var card1 = deck.cards[document.getElementById('card1').value];
+  var card2 = deck.cards[document.getElementById('card2').value];
+  var card3 = deck.cards[document.getElementById('card3').value];
+
+  var isValid = isValidSet(card1, card2, card3);
+
+  // If valid, increment the appropriate player's score
+  if (isValid) {
+    let scoreElement = document.getElementById(currentPlayer + 'Score');
+    let currentScore = parseInt(scoreElement.innerHTML);
+    currentScore += 1;
+    scoreElement.innerHTML = currentScore;
+    //drawMore();
+  }else{
+    alert("That was not a valid set!");
+  }
+
+  // Clear the text fields
+  document.getElementById('card1').value = '';
+  document.getElementById('card2').value = '';
+  document.getElementById('card3').value = '';
+
+  // Reset the player selection button back to default appearance
+  document.getElementById(currentPlayer).style.color = 'black';
+
+  // Set currentPlayer back to none (empty string)
+  currentPlayer = '';
+}
 

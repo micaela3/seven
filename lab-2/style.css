@@ -46,6 +46,10 @@ button:hover{
     background-color: #C38AFF;
 }
 
+#moreCardsButton:hover,#hintButton:hover,#submitSetButton:hover{
+    background-color: purple;
+}
+
 td {
     height: 80px;
     width: 200px;
