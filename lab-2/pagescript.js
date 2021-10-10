@@ -67,23 +67,19 @@ document.getElementById('players').addEventListener('click', function (event) {
       //if playerA is off, turn it on
       if (playerAButton == false) {
         event.target.style.color = 'green';
-        event.target.style.fontSize = 'large';
         playerAButton = true;
         currentPlayer = 'playerA';
       } else { //if playerA is on, turn it off
         event.target.style.color = 'black';
-        event.target.style.fontSize = 'small'
         playerAButton = false;
       }
     } else {
       if (playerBButton == false) { //if playerB is off, turn it on
         event.target.style.color = 'green';
-        event.target.style.fontSize = 'large';
         playerBButton = true;
         currentPlayer = 'playerB';
       } else { //if playerB is on, turn it off
         event.target.style.color = 'black';
-        event.target.style.fontSize = 'small'
         playerBButton = false;
       }
     }
@@ -117,18 +113,22 @@ function submitSetGuess(event) {
 
   // If valid, increment the appropriate player's score
   if (isValid) {
-    let currentScore = parseInt(document.getElementById(currentPlayer).innerHTML)
+    let scoreElement = document.getElementById(currentPlayer + 'Score');
+    let currentScore = parseInt(scoreElement.innerHTML);
     currentScore += 1;
-    document.getElementById(currentPlayer + 'score').innerHTML = currentScore;
+    scoreElement.innerHTML = currentScore;
   }
-
-  // Set currentPlayer back to none (empty string)
-  currentPlayer = '';
 
   // Clear the text fields
   document.getElementById('card1').value = '';
   document.getElementById('card2').value = '';
   document.getElementById('card3').value = '';
+
+  // Reset the player selection button back to default appearance
+  document.getElementById(currentPlayer).style.color = 'black';
+
+  // Set currentPlayer back to none (empty string)
+  currentPlayer = '';
 }
 
 console.log('test');
