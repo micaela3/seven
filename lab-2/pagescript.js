@@ -193,6 +193,13 @@ function submitSetGuess(event) {
   if (isValid) {
     let scoreElement = document.getElementById(currentPlayer + 'Score');
     let currentScore = parseInt(scoreElement.innerHTML);
+
+    // Check if score is 3. If so, this player wins.
+    if (currentScore == 2) {
+      alert(`${currentPlayer} has won the game!`);
+      window.location.reload();
+      return;
+    }
     currentScore += 1;
     scoreElement.innerHTML = currentScore;
 
