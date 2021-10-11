@@ -58,11 +58,13 @@ for (var i = 0; i < initialCards.length; i++) {
   }
 }
 
+
 document.getElementById('cards').addEventListener('click', function (event) {
   if (event.target.nodeName === 'BUTTON') {
     window.alert(event.target.innerHTML);
   }
 });
+
 
 document.getElementById('players').addEventListener('click', function (event) {
   if (event.target.nodeName === 'BUTTON') {
@@ -96,8 +98,8 @@ document.getElementById('moreCardsButton').addEventListener('click', drawCards);
 function drawCards(event) {
   if (numCardsOnTable == 21) {
     alert("You can't have more than 21 cards out at a time!")
-  } else if (deck.cards[80].shape.length > 1) {
-    alert("There are no more cards in the deck!")
+//  } else if (deck.cards[80].shape.length > 1) {
+//    alert("There are no more cards in the deck!")
   } else {
     // Find a <table> element with id="myTable":
     var table = document.getElementById("cards");
