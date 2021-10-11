@@ -13,12 +13,15 @@ var playerAScore = 0;
 var playerBScore = 0;
 var playerAButton = false;
 var playerBButton = false;
+var numCardsOnTable = 0;
+var numRows = 3;
 
 console.log(deck.cards);
 
 //Display the values on the initial twelve cards
 var initialCards = document.querySelectorAll('button.card');
 for (var i = 0; i < initialCards.length; i++) {
+  numCardsOnTable++;
   switch (deck.cards[i].shape) {
     case "triangle":
       if (deck.cards[i].shading === "solid") {
@@ -55,11 +58,13 @@ for (var i = 0; i < initialCards.length; i++) {
   }
 }
 
+
 document.getElementById('cards').addEventListener('click', function (event) {
   if (event.target.nodeName === 'BUTTON') {
     window.alert(event.target.innerHTML);
   }
 });
+
 
 document.getElementById('players').addEventListener('click', function (event) {
   if (event.target.nodeName === 'BUTTON') {
@@ -86,11 +91,66 @@ document.getElementById('players').addEventListener('click', function (event) {
   }
 });
 
-
-
 // adding event listeners for hint button, draw cards button, and submit set guess button
 // document.getElementById('hintButton').addEventListener('click', hint);
-// alter set.js so that hint is its own function instead of in while loop
+document.getElementById('moreCardsButton').addEventListener('click', drawCards);
+
+function drawCards(event) {
+  if (numCardsOnTable == 21) {
+    alert("You can't have more than 21 cards out at a time!")
+//  } else if (deck.cards[80].shape.length > 1) {
+//    alert("There are no more cards in the deck!")
+  } else {
+    // Find a <table> element with id="myTable":
+    var table = document.getElementById("cards");
+    // Create an empty <tr> element and add it to the 1st position of the table:
+    var row = table.insertRow(numRows);
+    numRows++;
+    // Add some text to the new cells:
+    var index = 0;
+    for (var cardsOnTable = numCardsOnTable; numCardsOnTable < cardsOnTable + 3; i++) {
+      var tableCell = row.insertCell(index);
+      tableCell.setAttribute('id', 'newCard');
+      tableCell.classList.add("card");
+      switch (deck.cards[i].shape) {
+        case "triangle":
+          if (deck.cards[i].shading === "solid") {
+            deck.cards[i].shape = TRIANGLES[0];
+          } else if (deck.cards[i].shading === "half") {
+            deck.cards[i].shape = TRIANGLES[1];
+          } else {
+            deck.cards[i].shape = TRIANGLES[2];
+          }
+          break;
+        case "circle":
+          tableCell.style.fontSize = 'extra large';
+          if (deck.cards[i].shading === "solid") {
+            deck.cards[i].shape = CIRCLES[0];
+          } else if (deck.cards[i].shading === "half") {
+            deck.cards[i].shape = CIRCLES[1];
+          } else {
+            deck.cards[i].shape = CIRCLES[2];
+          }
+          break;
+        case "square":
+          if (deck.cards[i].shading === "solid") {
+            deck.cards[i].shape = SQUARES[0];
+          } else if (deck.cards[i].shading === "half") {
+            deck.cards[i].shape = SQUARES[1];
+          } else {
+            deck.cards[i].shape = SQUARES[2];
+          }
+      }
+      tableCell.classList.add(`${deck.cards[i].color}`);
+      tableCell.innerHTML = "Card".concat(numCardsOnTable);
+      for (var j = 0; j < deck.cards[i].number; j++) {
+        tableCell.innerHTML = tableCell.innerHTML.concat(`<br>${deck.cards[i].shape}\n`);
+      }
+      index++;
+      numCardsOnTable++;
+    }
+  }
+};
 
 // document.getElementById('moreCardsButton').addEventListener('click', drawMore);
 // alter set.js so that drawMore is its own function instead of in while loop
@@ -108,6 +168,8 @@ function submitSetGuess(event) {
   var card1 = deck.cards[document.getElementById('card1').value];
   var card2 = deck.cards[document.getElementById('card2').value];
   var card3 = deck.cards[document.getElementById('card3').value];
+  
+  console.log(card1, card2, card3);
 
   var isValid = isValidSet(card1, card2, card3);
 
@@ -117,6 +179,9 @@ function submitSetGuess(event) {
     let currentScore = parseInt(scoreElement.innerHTML);
     currentScore += 1;
     scoreElement.innerHTML = currentScore;
+    //drawCards();
+  } else {
+    alert("That was not a valid set!");
   }
 
   // Clear the text fields
@@ -131,4 +196,3 @@ function submitSetGuess(event) {
   currentPlayer = '';
 }
 
-console.log('test');
