@@ -94,8 +94,10 @@ document.getElementById('players').addEventListener('click', function (event) {
 document.getElementById('moreCardsButton').addEventListener('click', drawCards);
 
 function drawCards(event) {
-  if (numCardsOnTable == 20) {
-    alert("You can't have more than 20 cards out at a time!")
+  if (numCardsOnTable == 21) {
+    alert("You can't have more than 21 cards out at a time!")
+  } else if (deck.cards[80].shape.length > 1) {
+    alert("There are no more cards in the deck!")
   } else {
     // Find a <table> element with id="myTable":
     var table = document.getElementById("cards");
@@ -104,7 +106,7 @@ function drawCards(event) {
     numRows++;
     // Add some text to the new cells:
     var index = 0;
-    for (var cardsOnTable = numCardsOnTable; numCardsOnTable < cardsOnTable + 4; i++) {
+    for (var cardsOnTable = numCardsOnTable; numCardsOnTable < cardsOnTable + 3; i++) {
       var tableCell = row.insertCell(index);
       tableCell.setAttribute('id', 'newCard');
       tableCell.classList.add("card");
@@ -138,9 +140,9 @@ function drawCards(event) {
           }
       }
       tableCell.classList.add(`${deck.cards[i].color}`);
-      tableCell.innerHTML = "";
+      tableCell.innerHTML = "Card".concat(numCardsOnTable);
       for (var j = 0; j < deck.cards[i].number; j++) {
-        tableCell.innerHTML = tableCell.innerHTML.concat(`${deck.cards[i].shape}\n`);
+        tableCell.innerHTML = tableCell.innerHTML.concat(`<br>${deck.cards[i].shape}\n`);
       }
       index++;
       numCardsOnTable++;
@@ -164,6 +166,8 @@ function submitSetGuess(event) {
   var card1 = deck.cards[document.getElementById('card1').value];
   var card2 = deck.cards[document.getElementById('card2').value];
   var card3 = deck.cards[document.getElementById('card3').value];
+  
+  console.log(card1, card2, card3);
 
   var isValid = isValidSet(card1, card2, card3);
 
@@ -173,7 +177,7 @@ function submitSetGuess(event) {
     let currentScore = parseInt(scoreElement.innerHTML);
     currentScore += 1;
     scoreElement.innerHTML = currentScore;
-    //drawMore();
+    //drawCards();
   } else {
     alert("That was not a valid set!");
   }
