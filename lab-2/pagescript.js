@@ -110,7 +110,8 @@ function drawCards(event) {
     var index = 0;
     for (var cardsOnTable = numCardsOnTable; numCardsOnTable < cardsOnTable + 3; i++) {
       var tableCell = row.insertCell(index);
-      tableCell.setAttribute('id', 'newCard');
+      // tableCell.setAttribute('id', 'newCard');
+      tableCell.setAttribute('id', `card${numCardsOnTable}`)
       tableCell.classList.add("card");
       switch (deck.cards[i].shape) {
         case "triangle":
@@ -152,6 +153,12 @@ function drawCards(event) {
   }
 };
 
+function removeCard(ID) {
+  let cardElement = document.getElementById(ID);
+  console.log(ID);
+  cardElement.remove();
+}
+
 // document.getElementById('moreCardsButton').addEventListener('click', drawMore);
 // alter set.js so that drawMore is its own function instead of in while loop
 
@@ -165,10 +172,10 @@ document.getElementById('submitSetButton').addEventListener('click', submitSetGu
  *3.  deal more cards if needed*/
 function submitSetGuess(event) {
   // Get the cards that were entered by user in text fields
-  var card1 = deck.cards[document.getElementById('card1').value];
-  var card2 = deck.cards[document.getElementById('card2').value];
-  var card3 = deck.cards[document.getElementById('card3').value];
-  
+  var card1 = deck.cards[document.getElementById('choice1').value];
+  var card2 = deck.cards[document.getElementById('choice2').value];
+  var card3 = deck.cards[document.getElementById('choice3').value];
+
   console.log(card1, card2, card3);
 
   var isValid = isValidSet(card1, card2, card3);
@@ -179,7 +186,14 @@ function submitSetGuess(event) {
     let currentScore = parseInt(scoreElement.innerHTML);
     currentScore += 1;
     scoreElement.innerHTML = currentScore;
-    //drawCards();
+
+    console.log('card 1 ID', card1.id);
+
+    removeCard(card1.id);
+    removeCard(card2.id);
+    removeCard(card3.id);
+
+    drawCards(event);
   } else {
     alert("That was not a valid set!");
   }
