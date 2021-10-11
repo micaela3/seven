@@ -64,26 +64,3 @@ var flag = true;
 
   return flag;
 }
-
-// function used in find_set as a predicate function for the filter function
-function isValidSetArray(elt, index, array) {
-  var card1 = array[0];
-  var card2 = array[1];
-  var card3 = array[2];
-
-  if (!(card1.color === card2.color && card2.color === card3.color) || !(card1.color !== card2.color && card1.color !== card3.color && card2.color != card3.color)) {
-    return false;
-  }
-  if (!(card1.number === card2.number && card2.number === card3.number) || !(card1.number !== card2.number && card1.number !== card3.number && card2.number != card3.number)) {
-    return false;
-  }
-  if (!(card1.shape === card2.shape && card2.shape === card3.shape) || !(card1.shape !== card2.shape && card1.shape !== card3.shape && card2.shape != card3.shape)) {
-    return false;
-  }
-  if (!(card1.shading === card2.shading && card2.shading === card3.shading) || !(card1.shading !== card2.shading && card1.shading !== card3.shading && card2.shading != card3.shading)) {
-    return false;
-  }
-
-  return true;
-}
-
