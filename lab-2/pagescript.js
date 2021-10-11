@@ -187,13 +187,13 @@ function submitSetGuess(event) {
     currentScore += 1;
     scoreElement.innerHTML = currentScore;
 
-    console.log('card 1 ID', card1.id);
-
-    removeCard(card1.id);
-    removeCard(card2.id);
-    removeCard(card3.id);
-
+    // Replace the chosen cards
     drawCards(event);
+
+    // Remove cards that were chosen
+    removeCard('card' + document.getElementById('choice1').value);
+    removeCard('card' + document.getElementById('choice2').value);
+    removeCard('card' + document.getElementById('choice3').value);
   } else {
     alert("That was not a valid set!");
   }
