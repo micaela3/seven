@@ -18,6 +18,6 @@ class Course < ApplicationRecord
     # TODO: time
     # TODO: seating
     # TODO: instructor
-
+    end
   end
 end
