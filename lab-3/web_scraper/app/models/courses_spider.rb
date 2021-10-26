@@ -2,7 +2,7 @@
 require 'kimurai'
 class CoursesSpider < Kimurai::Base
   @name = 'courses_spider'
-  @engine = :mechanize
+  @engine = :selenium_firefox
 
   def self.process(url)
     @start_urls = [url]
@@ -10,8 +10,9 @@ class CoursesSpider < Kimurai::Base
   end
 
   def parse(response, url:, data: {})
-    Rails.logger.info "URL: #{url}"
-    #response.xpath("/html/body/div[3]/div/div/div/div[4]/div[2]/div[1]/div[1]").each do |course|
+    # sleep 2
+    # response = browser.current_response
+    Rails.logger.info "DEBUG: response=#{response}"
     response.xpath("//div[@class='course']").each do |course|
       item = {}
       Rails.logger.info "IN COURSE CLASS"
