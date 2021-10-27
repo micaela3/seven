@@ -18,7 +18,12 @@ class CoursesController < ApplicationController
   rescue StandardError => e
     flash.now[:alert] = "Error: #{e}"
   end
-  
+
+  # Clear table, then refresh the page
+  def clear_table
+    ActiveRecord::Base.connection.truncate(:courses)
+  end
+
   # GET /courses/1 or /courses/1.json
   def show
   end
@@ -77,8 +82,9 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:course_name, :section, :class_type, :autoenroll, :weekdays, :time, :course_id, :seating, :instructor)
+      # params.require(:course).permit(:course_name, :section, :class_type, :autoenroll, :weekdays, :time, :course_id, :seating, :instructor)
+      params.require(:course).permit(:course_name, :sections, :instructors, :course_id)
     end
 
-    
+
 end

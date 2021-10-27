@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <%= button_to 'Scrape', scrape_courses_path %>
+<%= button_to 'Clear Table', clear_table_courses_path %>
 
 <h1>Courses</h1>
 
@@ -7,13 +8,9 @@
   <thead>
     <tr>
       <th>Course_Name</th>
-      <th>Section</th>
-      <th>Class_Type</th>
-      <th>Autoenroll</th>
-      <th>Weekdays</th>
-      <th>Time</th>
-      <th>Seating</th>
-      <th>Instructor</th>
+      <th>Sections</th>
+      <th>Instructors</th>
+      <th>Course_ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,13 +19,9 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.course_name %></td>
-        <td><%= course.section %></td>
-        <td><%= course.class_type %></td>
-        <td><%= course.autoenroll %></td>
-        <td><%= course.weekdays %></td>
-        <td><%= course.time %></td>
-        <td><%= course.seating %></td>
-        <td><%= course.instructor %></td>
+        <td><%= course.sections %></td>
+        <td><%= course.instructors %></td>
+        <td><%= course.course_id %></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
