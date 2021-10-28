@@ -13,7 +13,6 @@ class CoursesSpider < Kimurai::Base
   end
 
   def parse(response, url:, data: {})
-    Rails.logger.info "#{response}"
     # Iterate through the whole page
     sleep 2
     response = browser.current_response
@@ -24,8 +23,23 @@ class CoursesSpider < Kimurai::Base
       item[:sections] = 0
       # Iterate through the data for the current class
       course.css('div.section-container').each do |section|
+        # Add to the count of sections
         item[:sections] += 1
-        Rails.logger.info "DEBUG: sections = #{item[:sections]}"
+
+        # Create list of instructors
+        instructors = Array.new()
+        section.css('li.right').each do |instructor|
+          instructors << instructor&.text&.squish
+          Rails.logger.info "DEBUG: instructors2 = #{instructors}"
+        end
+
+        # Format instructors string and add to table
+        instructors = instructors.to_s
+        instructors.gsub!('[', '')
+        instructors.gsub!(']', '')
+        instructors.gsub!('"', '')
+        item[:instructors] = instructors
+
       end
 
       Course.where(item).first_or_create
