@@ -16,33 +16,32 @@ class CoursesSpider < Kimurai::Base
     # Iterate through the whole page
     sleep 2
     response = browser.current_response
-    response.css('div.course').each do |course|
       item = {}
-      item[:course_name] = course.css('h3.ng-binding')&.text&.squish
+
+    # Iterate through each class section on the page
+    response.css('div.section-container').each do |section|
+      course_name = section.css('span.sr-only-focusable')&.text
+      section_name = section.css('span.lightweight')&.text&.squish
+      item[:course_name_and_section] = course_name + section_name
 
       item[:sections] = 0
-      # Iterate through the data for the current class
-      course.css('div.section-container').each do |section|
-        # Add to the count of sections
-        item[:sections] += 1
 
-        # Create list of instructors
-        instructors = Array.new()
-        section.css('li.right').each do |instructor|
-          instructors << instructor&.text&.squish
-          Rails.logger.info "DEBUG: instructors2 = #{instructors}"
-        end
-
-        # Format instructors string and add to table
-        instructors = instructors.to_s
-        instructors.gsub!('[', '')
-        instructors.gsub!(']', '')
-        instructors.gsub!('"', '')
-        item[:instructors] = instructors
-
+      # Create list of instructors
+      instructors = Array.new()
+      section.css('li.right').each do |instructor|
+        instructors << instructor&.text&.squish
+        Rails.logger.info "DEBUG: instructors2 = #{instructors}"
       end
 
-      Course.where(item).first_or_create
+      # Remove duplicates, convert to string, format prettily, and store
+      instructors = instructors.uniq
+      instructors = instructors.to_s
+      instructors.gsub!('[', '')
+      instructors.gsub!(']', '')
+      instructors.gsub!('"', '')
+      item[:instructors] = instructors
+
+    Course.where(item).first_or_create
     end
   end
 end
