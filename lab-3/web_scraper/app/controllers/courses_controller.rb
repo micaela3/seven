@@ -22,6 +22,7 @@ class CoursesController < ApplicationController
   # Clear table, then refresh the page
   def clear_table
     ActiveRecord::Base.connection.truncate(:courses)
+    redirect_back(fallback_location: root_path)
   end
 
   # GET /courses/1 or /courses/1.json

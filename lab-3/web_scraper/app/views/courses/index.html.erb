@@ -8,9 +8,12 @@
   <thead>
     <tr>
       <th>Course Name and Section</th>
-      <th>Sections</th>
+      <th>Section</th>
       <th>Instructors</th>
-      <th>Course ID</th>
+      <th>Weekdays</th>
+      <th>Times</th>
+      <th>Class Type</th>
+      <th>Room</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +22,12 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.course_name_and_section %></td>
-        <td><%= course.sections %></td>
-        <td><%= course.instructors %></td>
-        <td><%= course.course_id %></td>
+        <td><%= course.section %></td>
+        <td><%= course.instructor %></td>
+        <td><%= course.weekdays %></td>
+        <td><%= course.times %></td>
+        <td><%= course.class_type %></td>
+        <td><%= course.room %></td>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

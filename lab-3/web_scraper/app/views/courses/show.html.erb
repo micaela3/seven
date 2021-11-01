@@ -1,6 +1,6 @@
 <p>
-  <strong>Course name:</strong>
-  <%= @course.course_name %>
+  <strong>Course Name and Section:</strong>
+  <%= @course.course_name_and_section %>
 </p>
 
 <p>
@@ -9,13 +9,8 @@
 </p>
 
 <p>
-  <strong>Class type:</strong>
-  <%= @course.class_type %>
-</p>
-
-<p>
-  <strong>Autoenroll:</strong>
-  <%= @course.autoenroll %>
+  <strong>Instructor:</strong>
+  <%= @course.instructor %>
 </p>
 
 <p>
@@ -24,19 +19,22 @@
 </p>
 
 <p>
-  <strong>Time:</strong>
-  <%= @course.time %>
+  <strong>Times:</strong>
+  <%= @course.times %>
 </p>
 
 <p>
-  <strong>Seating:</strong>
-  <%= @course.seating %>
+  <strong>Class type:</strong>
+  <%= @course.class_type %>
 </p>
 
 <p>
-  <strong>Instructor:</strong>
-  <%= @course.instructor %>
+  <strong>Room:</strong>
+  <%= @course.room %>
 </p>
+
+
+
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
