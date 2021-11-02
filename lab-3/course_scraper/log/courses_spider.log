@@ -1,0 +1,28 @@
+I, [2021-11-02 16:20:31 -0400#8582] [M: 2060]  INFO -- courses_spider: Spider: started: courses_spider
+F, [2021-11-02 16:20:31 -0400#8582] [M: 2060] FATAL -- courses_spider: Spider: stopped: {:spider_name=>"courses_spider", :status=>:failed, :error=>"#<ArgumentError: wrong number of arguments (given 0, expected 1; required keyword: url)>", :environment=>"development", :start_time=>2021-11-02 16:20:31.543707543 -0400, :stop_time=>2021-11-02 16:20:31.545117163 -0400, :running_time=>"0s", :visits=>{:requests=>0, :responses=>0}, :items=>{:sent=>0, :processed=>0}, :events=>{:requests_errors=>{}, :drop_items_errors=>{}, :custom=>{}}}
+bundler: failed to load command: kimurai (/home/nathan/.rbenv/versions/2.7.4/bin/kimurai)
+/home/nathan/cse3901/seven/lab-3/course_scraper/spiders/courses_spider.rb:15:in `parse': wrong number of arguments (given 0, expected 1; required keyword: url) (ArgumentError)
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/kimurai-1.4.0/lib/kimurai/base.rb:132:in `crawl!'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/kimurai-1.4.0/lib/kimurai/cli.rb:83:in `crawl'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/command.rb:27:in `run'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/invocation.rb:127:in `invoke_command'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor.rb:392:in `dispatch'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/thor-1.1.0/lib/thor/base.rb:485:in `start'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/kimurai-1.4.0/exe/kimurai:6:in `<top (required)>'
+	from /home/nathan/.rbenv/versions/2.7.4/bin/kimurai:23:in `load'
+	from /home/nathan/.rbenv/versions/2.7.4/bin/kimurai:23:in `<top (required)>'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/cli/exec.rb:58:in `load'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/cli/exec.rb:58:in `kernel_load'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/cli/exec.rb:23:in `run'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/cli.rb:478:in `exec'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/cli.rb:31:in `dispatch'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/cli.rb:25:in `start'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/exe/bundle:49:in `block in <top (required)>'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/lib/bundler/friendly_errors.rb:128:in `with_friendly_errors'
+	from /home/nathan/.rbenv/versions/2.7.4/lib/ruby/gems/2.7.0/gems/bundler-2.2.29/exe/bundle:37:in `<top (required)>'
+	from /home/nathan/.rbenv/versions/2.7.4/bin/bundle:23:in `load'
+	from /home/nathan/.rbenv/versions/2.7.4/bin/bundle:23:in `<main>'
