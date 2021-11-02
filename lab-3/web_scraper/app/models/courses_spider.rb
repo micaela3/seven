@@ -34,12 +34,12 @@ class CoursesSpider < Kimurai::Base
       end
 
       # gets weekdays for section
-      course_weekdays = section.css("p[ng-bind='setDays(meeting)']")[0]&.text
+      course_weekdays = section.css("p[ng-bind='setDays(meeting)']")[0]&.text&.squish
       Rails.logger.info "DEBUG: weekdays = #{course_weekdays} end of debug statement"
       item[:weekdays] = course_weekdays
 
       #gets meeting time for section
-      course_times = section.css("div[ng-show='meeting.startTime']")[0]&.text
+      course_times = section.css("div[ng-show='meeting.startTime']")[0]&.text&.squish
       Rails.logger.info "DEBUG: times = #{course_times} end of debug statement"
       item[:times] = course_times
 

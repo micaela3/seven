@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :course_name %>
-    <%= form.text_field :course_name %>
+    <%= form.label :course_name_and_section %>
+    <%= form.text_field :course_name_and_section %>
   </div>
 
   <div class="field">
     <%= form.label :section %>
-    <%= form.number_field :section %>
+    <%= form.text_field :section %>
   </div>
 
   <div class="field">
@@ -27,23 +27,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :autoenroll %>
-    <%= form.number_field :autoenroll %>
-  </div>
-
-  <div class="field">
     <%= form.label :weekdays %>
     <%= form.text_field :weekdays %>
   </div>
 
   <div class="field">
-    <%= form.label :time %>
-    <%= form.text_field :time %>
+    <%= form.label :times %>
+    <%= form.text_field :times %>
   </div>
    
   <div class="field">
-    <%= form.label :seating %>
-    <%= form.text_field :seating %>
+    <%= form.label :room %>
+    <%= form.text_field :room %>
   </div>
 
   <div class="field">
