@@ -16,7 +16,23 @@ class CoursesSpider < Kimurai::Base
     # Iterate through the whole page
     sleep 2
     response = browser.current_response
-      item = {}
+    item = {}
+
+    count = response.css('div.course').count
+    loop do
+      browser.execute_script("window.scrollBy(0,10000)")
+      sleep 2
+      Rails.logger.info "DEBUG: just scrolled. count = #{count}"
+      response = browser.current_response
+      new_count = response.css('div.course').count
+      Rails.logger.info "DEBUG: just scrolled. new_count = #{new_count}"
+      if count == new_count # Pagination is done
+        break
+      else # Pagination is not yet done
+        count = new_count
+      end
+    end
+    Rails.logger.info "DEBUG: finished scrolling, now scraping"
 
     # Iterate through each class section on the page
     response.css('div.section-container').each do |section|
