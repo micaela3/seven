@@ -85,7 +85,7 @@ class CoursesSpider < Kimurai::Base
       item[:instructor] = instructors
 
     # save_to "scraped_courses.json", item, format: :pretty_json
-    save_to "scraped_courses.json", item, format: :csv
+    save_to "scraped_courses.csv", item, format: :csv
     end
   end
 end
