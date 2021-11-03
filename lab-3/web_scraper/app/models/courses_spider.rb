@@ -15,6 +15,7 @@ class CoursesSpider < Kimurai::Base
   end
 
   def parse(response, url:, data: {})
+    Rails.logger.info "DEBUG: HERE"
     # Iterate through the whole page
     sleep 2
     response = browser.current_response

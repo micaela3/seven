@@ -8,8 +8,8 @@ class CoursesController < ApplicationController
 
   #Inspiration from https://medium.com/swlh/web-scraper-application-with-ruby-on-rails-864dfaae6270
   def scrape
-    clear_table
-    # url = 'https://classes.osu.edu/class-search/#/?q=cse&campus=col&p=1&term=1222&subject=cse&academic-career=ugrd'
+    clear_table(do_refresh=false)
+    url = 'https://classes.osu.edu/class-search/#/?q=cse&campus=col&p=1&term=1222&subject=cse&academic-career=ugrd'
     response = CoursesSpider.process(url)
     if response[:status] == :completed && response[:error].nil?
       flash.now[:notice] = "Successfully scraped url"
@@ -21,9 +21,11 @@ class CoursesController < ApplicationController
   end
 
   # Clear table, then refresh the page
-  def clear_table
+  def clear_table(do_refresh=true)
     ActiveRecord::Base.connection.truncate(:courses)
-    redirect_back(fallback_location: root_path)
+    if do_refresh
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   # GET /courses/1 or /courses/1.json
