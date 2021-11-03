@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
   #Inspiration from https://medium.com/swlh/web-scraper-application-with-ruby-on-rails-864dfaae6270
   def scrape
     clear_table
-    url = 'https://classes.osu.edu/class-search/#/?q=cse&campus=col&p=1&term=1222&subject=cse&academic-career=ugrd'
+    # url = 'https://classes.osu.edu/class-search/#/?q=cse&campus=col&p=1&term=1222&subject=cse&academic-career=ugrd'
     response = CoursesSpider.process(url)
     if response[:status] == :completed && response[:error].nil?
       flash.now[:notice] = "Successfully scraped url"

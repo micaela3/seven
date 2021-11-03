@@ -12,7 +12,22 @@ class CoursesSpider < Kimurai::Base
     # Iterate through the whole page
     sleep 2
     response = browser.current_response
-      item = {}
+    item = {}
+
+    # Scroll page all the way down. Code borrowed from Kimurai
+    # documentation at https://github.com/vifreefly/kimuraframework
+    count = response.css('div.course').count
+    loop do
+      browser.execute_script("window.scrollBy(0,10000)")
+      sleep 2
+      response = browser.current_response
+      new_count = response.css('div.course').count
+      if count == new_count # Pagination is done
+        break
+      else # Pagination is not yet done
+        count = new_count
+      end
+    end
 
     # Iterate through each class section on the page
     response.css('div.section-container').each do |section|
@@ -59,7 +74,6 @@ class CoursesSpider < Kimurai::Base
       end
       item[:class_type] = course_class_type
 
-
       item[:section] = section_name
 
       # Remove duplicates, convert to string, format prettily, and store
@@ -70,7 +84,8 @@ class CoursesSpider < Kimurai::Base
       instructors.gsub!('"', '')
       item[:instructor] = instructors
 
-    save_to "results.json", item, format: :pretty_json
+    # save_to "scraped_courses.json", item, format: :pretty_json
+    save_to "scraped_courses.json", item, format: :csv
     end
   end
 end
