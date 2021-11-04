@@ -44,11 +44,13 @@ group :development do
   gem 'spring'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem.
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# Web scraping framework written in Ruby based on well-known Capybara and Nokogiri gems.
 gem 'kimurai'
-gem 'xpath'
+# Generates code to create a user authentication system
 gem 'devise'
+# Implements the W3C WebDriver protocol to automate popular browsers and interacts with an application's HTML.
 gem 'selenium-webdriver'
-
+# Allows a user to print a database table in the Rails console
 gem 'table_print'
