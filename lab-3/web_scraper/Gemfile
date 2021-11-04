@@ -50,3 +50,5 @@ gem 'kimurai'
 gem 'xpath'
 gem 'devise'
 gem 'selenium-webdriver'
+
+gem 'table_print'
