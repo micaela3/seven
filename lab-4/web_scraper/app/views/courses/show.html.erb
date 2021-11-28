@@ -1,0 +1,40 @@
+<p>
+  <strong>Course Name and Section:</strong>
+  <%= @course.course_name_and_section %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @course.section %>
+</p>
+
+<p>
+  <strong>Instructor:</strong>
+  <%= @course.instructor %>
+</p>
+
+<p>
+  <strong>Weekdays:</strong>
+  <%= @course.weekdays %>
+</p>
+
+<p>
+  <strong>Times:</strong>
+  <%= @course.times %>
+</p>
+
+<p>
+  <strong>Class type:</strong>
+  <%= @course.class_type %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @course.room %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
