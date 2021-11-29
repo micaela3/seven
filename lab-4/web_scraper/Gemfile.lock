@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/king601/devise-bootstrapped.git
+  revision: 59e23f0673c9a273be765ca26091c5792cd25fa7
+  branch: bootstrap4
+  specs:
+    devise-bootstrapped (0.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -277,7 +284,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
-  devise
+  devise (~> 4.7, >= 4.7.1)
+  devise-bootstrapped!
   jbuilder (~> 2.7)
   kimurai
   listen (~> 3.3)
@@ -293,7 +301,6 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
-  xpath
 
 RUBY VERSION
    ruby 2.7.4p191

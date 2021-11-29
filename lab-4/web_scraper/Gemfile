@@ -49,8 +49,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Web scraping framework written in Ruby based on well-known Capybara and Nokogiri gems.
 gem 'kimurai'
 # Generates code to create a user authentication system
-gem 'devise'
+gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 # Implements the W3C WebDriver protocol to automate popular browsers and interacts with an application's HTML.
 gem 'selenium-webdriver'
 # Allows a user to print a database table in the Rails console
 gem 'table_print'
+
