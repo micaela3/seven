@@ -1,0 +1,9 @@
+<h1>Please select an option</h1>
+<h3>I am a:</h3>
+
+<%# These links all need to have their paths provided in config/routes.rb %>
+<%= button_to "Student", student_index_path, method: :get%>
+<%= button_to "Instructor", instructor_index_path, method: :get %>
+<%= button_to "Administrator", admin_index_path, method: :get %>
+
+<p>DEBUG PURPOSES: Link to <%= link_to "Course Scraper", courses_index_path%></p>
