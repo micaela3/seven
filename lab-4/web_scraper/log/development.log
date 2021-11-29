@@ -2070,3 +2070,52 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.5ms | Allocations: 5100)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7891611934555048035)[0m
+  [1m[35m (24.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAdminToUser (20211129202027)
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (95.7ms)[0m  [1m[35mALTER TABLE "users" ADD "student" boolean DEFAULT FALSE[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "instructor" boolean DEFAULT FALSE[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT FALSE[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211129202027"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (12.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7891611934555048035)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-11-29 16:19:39 -0500
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (16.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 24.6ms | Allocations: 476)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 138.5ms | Allocations: 7250)
+Completed 200 OK in 391ms (Views: 201.6ms | ActiveRecord: 43.5ms | Allocations: 18491)
+
+
+Started GET "/student/index" for 127.0.0.1 at 2021-11-29 16:19:55 -0500
+Processing by StudentController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering student/index.html.erb within layouts/application
+  Rendered student/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 118)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 3387)
+Completed 200 OK in 41ms (Views: 27.6ms | ActiveRecord: 2.0ms | Allocations: 5720)
+
+
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7891611934555048035)[0m
+  [1m[35m (57.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudentApplications (20211129214335)
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7891611934555048035)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7891611934555048035)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudentApplications (20211129214335)
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (374.7ms)[0m  [1m[35mCREATE TABLE "student_applications" ("id" bigserial primary key, "email" character varying, "name" character varying, "phone_number" character varying, "desired_courses" character varying, "taken_courses" character varying, "availability" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (4.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211129214335"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (45.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(7891611934555048035)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
