@@ -1,0 +1,27 @@
+<%# <p>Find me in app/views/instructor_recommendation/new.html.erb</p> %>
+<h1>InstructorRecommendation#new</h1>
+
+<%= form_with model: @instructor_recommendation, url: instructor_recommendation_new_path do |form| %>
+    <% if @instructor_recommendation.errors.any? %>
+        <div class="alert alert-danger">
+            <% @instructor_recommendation.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+    <% end %>
+    <div class="mb-3">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control", placeholder: "John Doe" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: "form-control", placeholder: "johndoe@email.com" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :message %>
+        <%= form.text_field :message, class: "form-control", placeholder: "Your recommendation" %>
+    </div>
+    <div class="mb-3">
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+    </div>
+<% end %>

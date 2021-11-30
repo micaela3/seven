@@ -1,0 +1,2 @@
+class InstructorRecommendation < ApplicationRecord
+end

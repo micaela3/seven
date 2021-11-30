@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  # get 'instructor_recommendation/new' # DELETE ME
+  # get 'instructor_recommendation/create' # DELETE ME
+  get "instructor_recommendation/new", to: "instructor_recommendation#new"
+  post "instructor_recommendation/new", to: "instructor_recommendation#create"
   get "student_application/new", to: "student_application#new"
   post "student_application/new", to: "student_application#create"
-  devise_for :users
   get 'admin/index'
   get 'instructor/index'
   get 'student/index'
   get 'courses/index'
-  
+  devise_for :users
+
 
   # Links for buttons on homepage
   # resources :pages do

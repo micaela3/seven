@@ -3405,3 +3405,326 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.7ms | Allocations: 5189)
 
 
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:18:30 -0500
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:18:33 -0500
+  [1m[35m (161.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (64.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (107.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 49.5ms | Allocations: 618)
+  Rendered pages/home.html.erb within layouts/application (Duration: 25.9ms | Allocations: 609)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 626.4ms | Allocations: 53844)
+Completed 200 OK in 1681ms (Views: 700.9ms | ActiveRecord: 197.9ms | Allocations: 69777)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 607.9ms | Allocations: 54580)
+Completed 200 OK in 1800ms (Views: 734.2ms | ActiveRecord: 442.0ms | Allocations: 71040)
+
+
+Started GET "/student/index" for 127.0.0.1 at 2021-11-29 21:18:41 -0500
+Processing by StudentController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering student/index.html.erb within layouts/application
+  Rendered student/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 183)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 3530)
+Completed 200 OK in 40ms (Views: 22.6ms | ActiveRecord: 1.5ms | Allocations: 5843)
+
+
+Started GET "/student_application/new" for 127.0.0.1 at 2021-11-29 21:18:43 -0500
+Processing by StudentApplicationController#new as HTML
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering student_application/new.html.erb within layouts/application
+  Rendered student_application/new.html.erb within layouts/application (Duration: 242.6ms | Allocations: 4245)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 259.3ms | Allocations: 7593)
+Completed 200 OK in 343ms (Views: 265.4ms | ActiveRecord: 12.7ms | Allocations: 14307)
+
+
+Started POST "/student_application/new" for 127.0.0.1 at 2021-11-29 21:20:27 -0500
+Processing by StudentApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "student_application"=>{"name"=>"Nathan", "email"=>"chin.237@osu.edu", "phone_number"=>"5134449225", "desired_courses"=>"foo", "taken_courses"=>"bar", "availability"=>"baz"}, "commit"=>"Submit"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :name[0m
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/student_application_controller.rb:7:in `create'
+  [1m[36mStudentApplication Create (181.7ms)[0m  [1m[32mINSERT INTO "student_applications" ("email", "phone_number", "desired_courses", "taken_courses", "availability", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "chin.237@osu.edu"], ["phone_number", "5134449225"], ["desired_courses", "foo"], ["taken_courses", "bar"], ["availability", "baz"], ["created_at", "2021-11-30 02:20:27.739150"], ["updated_at", "2021-11-30 02:20:27.739150"]]
+  ↳ app/controllers/student_application_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (23.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/student_application_controller.rb:7:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 242ms (ActiveRecord: 217.3ms | Allocations: 3973)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:20:28 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 181)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 3532)
+Completed 200 OK in 34ms (Views: 22.8ms | ActiveRecord: 4.2ms | Allocations: 5184)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2021-11-29 21:20:35 -0500
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (Duration: 25.4ms | Allocations: 119)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.3ms | Allocations: 3440)
+Completed 200 OK in 61ms (Views: 45.5ms | ActiveRecord: 4.6ms | Allocations: 5768)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7891611934555048035)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateInstructorRecommendations (20211130023145)
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (232.7ms)[0m  [1m[35mCREATE TABLE "instructor_recommendations" ("id" bigserial primary key, "name" character varying, "email" character varying, "message" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211130023145"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (46.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7891611934555048035)[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/admin/index" for 127.0.0.1 at 2021-11-29 21:38:56 -0500
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering admin/index.html.erb within layouts/application
+  Rendered admin/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 231)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 151.3ms | Allocations: 27215)
+Completed 200 OK in 326ms (Views: 164.3ms | ActiveRecord: 32.4ms | Allocations: 38503)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:38:58 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 342)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 3703)
+Completed 200 OK in 40ms (Views: 25.4ms | ActiveRecord: 4.9ms | Allocations: 6039)
+
+
+Started GET "/instructor/index" for 127.0.0.1 at 2021-11-29 21:39:00 -0500
+Processing by InstructorController#index as HTML
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering instructor/index.html.erb within layouts/application
+  Rendered instructor/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 189)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 43.1ms | Allocations: 3589)
+Completed 200 OK in 67ms (Views: 49.5ms | ActiveRecord: 6.2ms | Allocations: 5897)
+
+
+Started GET "/instructor_recommendation/new" for 127.0.0.1 at 2021-11-29 21:39:02 -0500
+Processing by InstructorRecommendationController#new as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering instructor_recommendation/new.html.erb within layouts/application
+  Rendered instructor_recommendation/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 110)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 3531)
+Completed 200 OK in 68ms (Views: 23.6ms | ActiveRecord: 12.4ms | Allocations: 8860)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:39:05 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 181)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 3582)
+Completed 200 OK in 36ms (Views: 23.2ms | ActiveRecord: 6.0ms | Allocations: 5245)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:43:30 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 476)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.1ms | Allocations: 7965)
+Completed 200 OK in 162ms (Views: 52.0ms | ActiveRecord: 26.3ms | Allocations: 19254)
+
+
+Started GET "/student/index" for 127.0.0.1 at 2021-11-29 21:43:32 -0500
+Processing by StudentController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering student/index.html.erb within layouts/application
+  Rendered student/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 180)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 3582)
+Completed 200 OK in 39ms (Views: 25.6ms | ActiveRecord: 1.8ms | Allocations: 5917)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:43:33 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 181)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 3582)
+Completed 200 OK in 32ms (Views: 16.8ms | ActiveRecord: 4.6ms | Allocations: 5246)
+
+
+Started GET "/instructor/index" for 127.0.0.1 at 2021-11-29 21:43:35 -0500
+Processing by InstructorController#index as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering instructor/index.html.erb within layouts/application
+  Rendered instructor/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 189)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 3591)
+Completed 200 OK in 43ms (Views: 24.0ms | ActiveRecord: 3.4ms | Allocations: 5919)
+
+
+Started GET "/instructor_recommendation/new" for 127.0.0.1 at 2021-11-29 21:43:37 -0500
+Processing by InstructorRecommendationController#new as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering instructor_recommendation/new.html.erb within layouts/application
+  Rendered instructor_recommendation/new.html.erb within layouts/application (Duration: 45.7ms | Allocations: 3421)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.1ms | Allocations: 6841)
+Completed 200 OK in 111ms (Views: 63.9ms | ActiveRecord: 8.6ms | Allocations: 12133)
+
+
+Started POST "/instructor_recommendation/new" for 127.0.0.1 at 2021-11-29 21:44:23 -0500
+Processing by InstructorRecommendationController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "instructor_recommendation"=>{"name"=>"Nathan David", "email"=>"nathanchin@nathanchin.com", "message"=>"I hereby recommend Hunter Giffin as a grader for anyone that needs a grader. He is the best. The end."}, "commit"=>"Submit"}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/instructor_recommendation_controller.rb:8:in `create'
+  [1m[36mInstructorRecommendation Create (4.8ms)[0m  [1m[32mINSERT INTO "instructor_recommendations" ("name", "email", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Nathan David"], ["email", "nathanchin@nathanchin.com"], ["message", "I hereby recommend Hunter Giffin as a grader for anyone that needs a grader. He is the best. The end."], ["created_at", "2021-11-30 02:44:23.577848"], ["updated_at", "2021-11-30 02:44:23.577848"]]
+  ↳ app/controllers/instructor_recommendation_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (404.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/instructor_recommendation_controller.rb:8:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 442ms (ActiveRecord: 423.1ms | Allocations: 3899)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:44:24 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 181)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 3585)
+Completed 200 OK in 32ms (Views: 20.9ms | ActiveRecord: 3.8ms | Allocations: 5238)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:47:29 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 476)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.8ms | Allocations: 7965)
+Completed 200 OK in 157ms (Views: 52.7ms | ActiveRecord: 25.1ms | Allocations: 19254)
+
+
+Started GET "/student/index" for 127.0.0.1 at 2021-11-29 21:47:40 -0500
+Processing by StudentController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering student/index.html.erb within layouts/application
+  Rendered student/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 180)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 3582)
+Completed 200 OK in 44ms (Views: 26.1ms | ActiveRecord: 3.7ms | Allocations: 5921)
+
+
+Started GET "/student_application/new" for 127.0.0.1 at 2021-11-29 21:47:42 -0500
+Processing by StudentApplicationController#new as HTML
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering student_application/new.html.erb within layouts/application
+  Rendered student_application/new.html.erb within layouts/application (Duration: 21.3ms | Allocations: 4244)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.1ms | Allocations: 7642)
+Completed 200 OK in 104ms (Views: 49.3ms | ActiveRecord: 20.3ms | Allocations: 14302)
+
+
+Started POST "/student_application/new" for 127.0.0.1 at 2021-11-29 21:48:17 -0500
+Processing by StudentApplicationController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "student_application"=>{"name"=>"Ian Bruns", "email"=>"bruns.220@osu.edu", "phone_number"=>"1234567890", "desired_courses"=>"CSE 1223", "taken_courses"=>"None", "availability"=>"Never"}, "commit"=>"Submit"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :name[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/student_application_controller.rb:7:in `create'
+  [1m[36mStudentApplication Create (2.7ms)[0m  [1m[32mINSERT INTO "student_applications" ("email", "phone_number", "desired_courses", "taken_courses", "availability", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "bruns.220@osu.edu"], ["phone_number", "1234567890"], ["desired_courses", "CSE 1223"], ["taken_courses", "None"], ["availability", "Never"], ["created_at", "2021-11-30 02:48:17.666734"], ["updated_at", "2021-11-30 02:48:17.666734"]]
+  ↳ app/controllers/student_application_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (46.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/student_application_controller.rb:7:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 91ms (ActiveRecord: 54.9ms | Allocations: 3975)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:48:17 -0500
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 181)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.1ms | Allocations: 3604)
+Completed 200 OK in 62ms (Views: 50.8ms | ActiveRecord: 3.9ms | Allocations: 5256)
+
+
+Started GET "/" for 127.0.0.1 at 2021-11-29 21:50:14 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.1ms | Allocations: 476)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 7965)
+Completed 200 OK in 171ms (Views: 56.3ms | ActiveRecord: 19.4ms | Allocations: 19254)
+
+
+Started GET "/student/index" for 127.0.0.1 at 2021-11-29 21:50:46 -0500
+Processing by StudentController#index as HTML
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering student/index.html.erb within layouts/application
+  Rendered student/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 180)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 3542)
+Completed 200 OK in 44ms (Views: 26.2ms | ActiveRecord: 4.8ms | Allocations: 5877)
+
+
+Started GET "/student_application/new" for 127.0.0.1 at 2021-11-29 21:50:47 -0500
+Processing by StudentApplicationController#new as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering student_application/new.html.erb within layouts/application
+  Rendered student_application/new.html.erb within layouts/application (Duration: 26.9ms | Allocations: 4244)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 7640)
+Completed 200 OK in 118ms (Views: 52.8ms | ActiveRecord: 11.9ms | Allocations: 14277)
+
+
