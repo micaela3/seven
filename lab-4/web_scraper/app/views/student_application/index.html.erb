@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag "student_application.css" %>
+
+<p id="notice"><%= notice %></p>
+<%= button_to 'Clear table (WARNING: this will delete all applications from database)', clear_table_student_application_path %>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Student Email</th>
+      <th>Student Phone Number</th>
+      <th>Desired Courses</th>
+      <th>Already-taken Courses</th>
+      <th>Availability</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applications.each do |application| %>
+      <tr>
+        <td><%= application.name %></td>
+        <td><%= application.email %></td>
+        <td><%= application.phone_number %></td>
+        <td><%= application.desired_courses %></td>
+        <td><%= application.taken_courses %></td>
+        <td><%= application.availability %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

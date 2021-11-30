@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "instructor_recommendation/index"
   get "instructor_recommendation/new", to: "instructor_recommendation#new"
   post "instructor_recommendation/new", to: "instructor_recommendation#create"
+  get "student_application/index"
   get "student_application/new", to: "student_application#new"
   post "student_application/new", to: "student_application#create"
   get 'admin/index'
@@ -10,11 +11,11 @@ Rails.application.routes.draw do
   get 'courses/index'
   devise_for :users
 
-  # resources :instructor_recommendation do
-  #   # Route 'Clear Table' button on index page to method that clears table
-  #   post 'clear_table_instructor_recommendation_path', to: 'instructor_recommendations#clear_table'
-  # end
+  # Route the clear table button in list of recommendations to the appropriate method
   post 'clear_table_instructor_recommendation', to: 'instructor_recommendation#clear_table'
+
+  # Route the clear table button in list of recommendations to the appropriate method
+  post 'clear_table_student_application', to: 'student_application#clear_table'
 
   # Actions for buttons on courses page
   resources :courses do
