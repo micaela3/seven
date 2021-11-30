@@ -1,4 +1,5 @@
 class StudentApplicationController < ApplicationController
-  def index
+  def new
+    @student_application = StudentApplication.new
   end
 end

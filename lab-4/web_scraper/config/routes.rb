@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  get 'student_application/index'
+  get "student_application/new"
+  post "student_application/new", to: "student_application#create"
   devise_for :users
   get 'admin/index'
   get 'instructor/index'
   get 'student/index'
   get 'courses/index'
+  
 
   # Links for buttons on homepage
   # resources :pages do
