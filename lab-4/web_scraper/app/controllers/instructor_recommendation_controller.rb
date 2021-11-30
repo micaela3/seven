@@ -1,4 +1,8 @@
 class InstructorRecommendationController < ApplicationController
+  def index
+    @recommendations = InstructorRecommendation.all
+  end
+
   def new
     @instructor_recommendation = InstructorRecommendation.new
   end
@@ -6,7 +10,7 @@ class InstructorRecommendationController < ApplicationController
   def create
     @instructor_recommendation = InstructorRecommendation.new(user_params)
     if @instructor_recommendation.save
-      redirect_to root_path, notice: "Successfully Submittes Recommendation"
+      redirect_to instructor_index_path, notice: "Successfully Submitted Recommendation"
     else
       render :new
     end
@@ -14,6 +18,6 @@ class InstructorRecommendationController < ApplicationController
 
   private
   def user_params
-    params.require(:instructor_recommendation).permit(:name, :email, :message)
+    params.require(:instructor_recommendation).permit(:name, :email, :student_name, :message)
   end
 end

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # get 'instructor_recommendation/new' # DELETE ME
-  # get 'instructor_recommendation/create' # DELETE ME
+  get "instructor_recommendation/index"
   get "instructor_recommendation/new", to: "instructor_recommendation#new"
   post "instructor_recommendation/new", to: "instructor_recommendation#create"
   get "student_application/new", to: "student_application#new"

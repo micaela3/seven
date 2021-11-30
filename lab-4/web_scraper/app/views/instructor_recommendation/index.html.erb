@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "instructor_recommendation.css" %>
+
+<p id="notice"><%= notice %></p>
+<%= button_to 'Clear table (WARNING: this will delete all recommendations from database)', clear_table_courses_path %>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Instructor Name</th>
+      <th>Instructor Email</th>
+      <th>Student Name</th>
+      <th>Recommendation Message</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recommendations.each do |recommendation| %>
+      <tr>
+        <td><%= recommendation.name %></td>
+        <td><%= recommendation.email %></td>
+        <td><%= recommendation.student_name %></td>
+        <td><%= recommendation.message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
