@@ -18,7 +18,7 @@ class StudentApplicationController < ApplicationController
   def create
     @student_application = StudentApplication.new(user_params)
     if @student_application.save
-      redirect_to root_path, notice: "Successfully Submitted Application"
+      redirect_to student_index_path, notice: "Successfully Submitted Application"
     else
       render :new
     end
