@@ -1,0 +1,39 @@
+<p>Find me in app/views/student_application/new.html.erb</p>
+<h1>Edit Student Application</h1>
+
+<%= form_with model: @student_application, url: student_application_edit_path(@student_application), method: :patch, local: true do |form| %>
+<% if @student_application.errors.any? %>
+        <div class="alert alert-danger">
+            <% @student_application.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+    <% end %>
+    <div class="mb-3">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control", placeholder: "John Doe" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: "form-control", placeholder: "johndoe@email.com" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :phone_number %>
+        <%= form.text_field :phone_number, class: "form-control", placeholder: "(###) ###-####" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :desired_courses %>
+        <%= form.text_field :desired_courses, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :taken_courses %>
+        <%= form.text_field :taken_courses, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :availability %>
+        <%= form.text_field :availability, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= form.submit "Update", class: "btn btn-primary" %>
+    </div>
+<% end %>

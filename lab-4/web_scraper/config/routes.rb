@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "student_application/index"
   get "student_application/new", to: "student_application#new"
   post "student_application/new", to: "student_application#create"
+  get "student_application/edit", to: "student_application#edit"
+  patch "student_application/edit", to: "student_application#update"
   get 'admin/index'
   get 'instructor/index'
   get 'student/index'
