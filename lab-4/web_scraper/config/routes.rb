@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "student_application/new"
+  get "student_application/new", to: "student_application#new"
   post "student_application/new", to: "student_application#create"
   devise_for :users
   get 'admin/index'

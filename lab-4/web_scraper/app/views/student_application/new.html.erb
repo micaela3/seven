@@ -2,6 +2,13 @@
 <p>Find me in app/views/student_application/new.html.erb</p>
 
 <%= form_with model: @student_application, url: student_application_new_path do |form| %>
+    <% if @student_application.errors.any? %>
+        <div class="alert alert-danger">
+            <% @student_application.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+        </div>
+    <% end %>
     <div class="mb-3">
         <%= form.label :name %>
         <%= form.text_field :name, class: "form-control", placeholder: "John Doe" %>
@@ -27,6 +34,6 @@
         <%= form.text_field :availability, class: "form-control" %>
     </div>
     <div class="mb-3">
-        <%= form.submit %>
+        <%= form.submit "Submit", class: "btn btn-primary" %>
     </div>
 <% end %>
