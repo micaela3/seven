@@ -2,6 +2,12 @@
 <h1>Admin Page</h1>
 
 <h5>Welcome! Please select what you would like to view:</h5>
-<%= link_to "View courses that are being offered", courses_index_path%><br>
-<%= link_to "View student grader applications", student_application_index_path %><br>
-<%= link_to "View instructor recommendations", instructor_recommendation_index_path%><br>
+<div class="mb-2">
+    <%= button_to "View courses that are being offered", courses_index_path, method: :get, class: "btn btn-secondary" %>
+</div>
+<div class="mb-2">
+    <%= button_to "View student grader applications", student_application_index_path, method: :get, class: "btn btn-secondary" %>
+</div>
+<div class="mb-2">
+    <%= button_to "View instructor recommendations", instructor_recommendation_index_path, method: :get, class: "btn btn-secondary" %>
+</div>
