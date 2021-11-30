@@ -25,6 +25,5 @@ Rails.application.routes.draw do
     # Route 'Clear Table' button on page to method that clears & refreshes
     match '/clear_table', to: 'courses#clear_table', via: :post, on: :collection
   end
-  # root to: 'courses#index'
   root to: 'pages#home'
 end

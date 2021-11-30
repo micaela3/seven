@@ -1,3 +1,2 @@
 class Course < ApplicationRecord
-  
 end
