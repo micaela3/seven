@@ -7,6 +7,14 @@ class InstructorRecommendationController < ApplicationController
     @instructor_recommendation = InstructorRecommendation.new
   end
 
+  # Clear table, then refresh the page
+  def clear_table(do_refresh=true)
+    ActiveRecord::Base.connection.truncate(:instructor_recommendations)
+    if do_refresh
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   def create
     @instructor_recommendation = InstructorRecommendation.new(user_params)
     if @instructor_recommendation.save

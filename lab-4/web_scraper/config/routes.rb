@@ -10,13 +10,11 @@ Rails.application.routes.draw do
   get 'courses/index'
   devise_for :users
 
-
-  # Links for buttons on homepage
-  # resources :pages do
-  #   collection do
-  #     get :temp
-  #   end
+  # resources :instructor_recommendation do
+  #   # Route 'Clear Table' button on index page to method that clears table
+  #   post 'clear_table_instructor_recommendation_path', to: 'instructor_recommendations#clear_table'
   # end
+  post 'clear_table_instructor_recommendation', to: 'instructor_recommendation#clear_table'
 
   # Actions for buttons on courses page
   resources :courses do
