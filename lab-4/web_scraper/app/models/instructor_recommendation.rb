@@ -1,3 +1,2 @@
 class InstructorRecommendation < ApplicationRecord
-    belongs_to :user
 end

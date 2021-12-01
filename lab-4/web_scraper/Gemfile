@@ -55,4 +55,3 @@ gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'boots
 gem 'selenium-webdriver'
 # Allows a user to print a database table in the Rails console
 gem 'table_print'
-
