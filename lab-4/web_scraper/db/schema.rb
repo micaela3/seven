@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_193047) do
+ActiveRecord::Schema.define(version: 2021_12_01_223131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_193047) do
     t.string "times"
     t.string "class_type"
     t.string "room"
+    t.string "graders"
   end
 
   create_table "instructor_recommendations", force: :cascade do |t|
@@ -34,6 +35,8 @@ ActiveRecord::Schema.define(version: 2021_11_30_193047) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "student_name"
     t.string "message"
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_instructor_recommendations_on_users_id"
   end
 
   create_table "student_applications", force: :cascade do |t|
