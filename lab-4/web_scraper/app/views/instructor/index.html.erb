@@ -1,3 +1,9 @@
 <%# <p>Find me in app/views/instructor/index.html.erb</p> %>
 <h1>Instructor Page</h1>
-<%= button_to "Recommend a student", instructor_recommendation_new_path, method: :get, class: "btn btn-primary" %>
+<div class="mb-2">
+    <%= button_to "View student grader applications", student_application_index_path, method: :get, class: "btn btn-secondary" %>
+</div>
+<div class="mb-2">
+    <%= button_to "Recommend a student", instructor_recommendation_new_path, method: :get, class: "btn btn-primary" %>
+</div>
+<p>Return to <%= link_to "Home", root_path %></p>
