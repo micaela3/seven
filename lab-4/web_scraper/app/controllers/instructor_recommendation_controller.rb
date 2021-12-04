@@ -3,6 +3,7 @@ class InstructorRecommendationController < ApplicationController
     @recommendations = InstructorRecommendation.all
   end
 
+  # Create new form for the users
   def new
     @instructor_recommendation = InstructorRecommendation.new
   end
@@ -15,6 +16,7 @@ class InstructorRecommendationController < ApplicationController
     end
   end
 
+  # Create the recommendation, if successfully created it will redirect to the instructor index page, else renders new
   def create
     @instructor_recommendation = InstructorRecommendation.new(user_params)
     if @instructor_recommendation.save
