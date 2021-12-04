@@ -77,4 +77,4 @@ decisions when assigning graders.
 
 
 ***A note about scraping: the courses table uses a web scraper
-that communicates with the courses website in real time, meaning that it sometimes a few moments to gather data. This is normal and should not be interupted.***
+that communicates with the courses website in real time, meaning that it sometimes a few moments to gather data. This is normal and should not be interrupted.***
